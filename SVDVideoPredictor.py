@@ -281,11 +281,11 @@ for epoch in range(30):
 
 
         # upstream from logits to short_term
-        dlogits_dlogits    = weights_dl @ dloss_dlogits          # you already have this
+        dlogits_dlogits    = weights_dl @ dloss_dlogits          
         tanh_c             = np.tanh(long_term)
 
         # grad wrt output_gate
-        dshortterm_dout    = dlogits_dlogits * tanh_c            # ∂short/∂out = tanh(c)
+        dshortterm_dout    = dlogits_dlogits * tanh_c            
         g_z_o              = dshortterm_dout * output_gate * (1 - output_gate)
 
 
@@ -332,7 +332,7 @@ for epoch in range(30):
 
 
 
-#ploS loss on graph
+#plots loss on graph
 def animate(i):
     plt.cla()
     plt.plot(X_val_graph, Y_val_graph)
